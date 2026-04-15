@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+workspace/output/*
+workspace/upload/*
+workspace/deploy/*
+!workspace/output/.gitkeep
+!workspace/upload/.gitkeep
+!workspace/deploy/.gitkeep
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+node_modules/

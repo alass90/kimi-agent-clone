@@ -1,0 +1,448 @@
+2026-04-15 09:01:01,129 [INFO] kimi-server: 🚀 Kimi Clone Backend starting up...
+2026-04-15 09:01:04,455 [INFO] kimi-server: Kimi Clone Backend shutting down...
+2026-04-15 09:12:07,842 [INFO] kimi-server: 🚀 Kimi Clone Backend starting up...
+2026-04-15 09:12:12,936 [INFO] agent.orchestrator: Session 857baff7 created in mode: base_chat
+2026-04-15 09:12:12,936 [INFO] kimi-server: Chat request: session=857baff7, mode=base_chat, stream=False
+2026-04-15 09:12:18,764 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:12:18,799 [INFO] agent.orchestrator: Session 857baff7: completed after 0 tool calls in 1 iterations
+2026-04-15 09:12:21,571 [INFO] agent.orchestrator: Session f495054e created in mode: ok_computer
+2026-04-15 09:12:21,571 [INFO] kimi-server: Chat request: session=f495054e, mode=ok_computer, stream=False
+2026-04-15 09:12:23,475 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:12:23,484 [INFO] agent.orchestrator: [f495054e] Tool #1: get_current_time({})
+2026-04-15 09:12:27,739 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:12:27,740 [INFO] agent.orchestrator: Session f495054e: completed after 1 tool calls in 2 iterations
+2026-04-15 09:13:41,151 [INFO] agent.orchestrator: Session 11b7c996 created in mode: ok_computer
+2026-04-15 09:13:41,151 [INFO] kimi-server: Chat request: session=11b7c996, mode=ok_computer, stream=False
+2026-04-15 09:13:43,680 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:13:43,681 [INFO] agent.orchestrator: [11b7c996] Tool #1: web_search({"query": "latest news artificial intelligence 2024", "count": 3})
+2026-04-15 09:13:48,754 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:13:48,755 [INFO] agent.orchestrator: Session 11b7c996: completed after 1 tool calls in 2 iterations
+2026-04-15 09:14:02,757 [INFO] agent.orchestrator: Session 69ab8753 created in mode: ok_computer
+2026-04-15 09:14:02,757 [INFO] kimi-server: Chat request: session=69ab8753, mode=ok_computer, stream=False
+2026-04-15 09:14:08,615 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:08,617 [INFO] agent.orchestrator: [69ab8753] Tool #1: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:08,742 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:08,743 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:08,744 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1411, in _ipython
+    result = await _sandbox_mgr.run_code(code, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 94, in run_code
+    return self._run_local(code, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 151, in _run_local
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:14,118 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:14,123 [INFO] agent.orchestrator: [69ab8753] Tool #2: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:14,125 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:14,125 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:14,126 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1411, in _ipython
+    result = await _sandbox_mgr.run_code(code, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 94, in run_code
+    return self._run_local(code, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 151, in _run_local
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:20,157 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:20,159 [INFO] agent.orchestrator: [69ab8753] Tool #3: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:20,160 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:20,161 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:20,161 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1407, in _ipython
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:25,414 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:25,416 [INFO] agent.orchestrator: [69ab8753] Tool #4: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:25,417 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:25,418 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:25,418 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1407, in _ipython
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:31,186 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:31,191 [INFO] agent.orchestrator: [69ab8753] Tool #5: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:31,192 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:31,193 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:31,194 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1407, in _ipython
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:35,619 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:35,626 [INFO] agent.orchestrator: [69ab8753] Tool #6: ipython({"code": "def fibonacci(n):\n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    # Generate Fibonacci numbers and store them in a list\n    fib_sequence = []\n    for _ in range(n):)
+2026-04-15 09:14:35,628 [ERROR] traitlets: No such kernel named python3
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:35,629 [ERROR] tools.executors: Kernel init error: No such kernel named python3
+2026-04-15 09:14:35,629 [ERROR] tools.executors: Tool ipython error: No such kernel named python3
+Traceback (most recent call last):
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1362, in execute_tool
+    result = await executor(arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 1407, in _ipython
+    kernel = _get_kernel()
+             ^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 424, in _get_kernel
+    _ipython_kernel = IPythonKernel()
+                      ^^^^^^^^^^^^^^^
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 274, in __init__
+    self._start_kernel()
+  File "/home/workspace/kimi-agent-clone/tools/executors.py", line 282, in _start_kernel
+    self.km.start_kernel()
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 171, in wrapped
+    return _runner_map[name].run(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 128, in run
+    return fut.result(None)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 97, in wrapper
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 88, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 441, in _async_start_kernel
+    kernel_cmd, kw = await self._async_pre_start_kernel(**kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 403, in _async_pre_start_kernel
+    self.kernel_spec,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/manager.py", line 196, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_client/kernelspec.py", line 287, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named python3
+2026-04-15 09:14:39,398 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:14:39,399 [INFO] agent.orchestrator: Session 69ab8753: completed after 6 tool calls in 7 iterations
+2026-04-15 09:14:59,030 [INFO] agent.orchestrator: Session 7236df83 created in mode: ok_computer
+2026-04-15 09:14:59,030 [INFO] kimi-server: Chat request: session=7236df83, mode=ok_computer, stream=False
+2026-04-15 09:15:00,544 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:15:00,545 [INFO] agent.orchestrator: [7236df83] Tool #1: todo_read({})
+2026-04-15 09:15:04,164 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:15:04,165 [INFO] agent.orchestrator: [7236df83] Tool #2: write_file({"file_path": "/mnt/workspace/plot_script.py", "content": "import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 10, 100)\ny = x**2\n\nplt.plot(x, y)\nplt.xlabel('x')\nplt.ylabel(')
+2026-04-15 09:15:05,696 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:15:05,697 [INFO] agent.orchestrator: [7236df83] Tool #3: shell({"command": "python /mnt/workspace/plot_script.py"})
+2026-04-15 09:15:09,567 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:15:09,568 [INFO] agent.orchestrator: [7236df83] Tool #4: shell({"command": "mkdir -p /mnt/workspace/output && python /mnt/workspace/plot_script.py"})
+2026-04-15 09:15:13,782 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:15:13,784 [INFO] agent.orchestrator: Session 7236df83: completed after 4 tool calls in 5 iterations
+2026-04-15 09:16:31,386 [INFO] kimi-server: Kimi Clone Backend shutting down...
+2026-04-15 09:16:32,848 [INFO] kimi-server: 🚀 Kimi Clone Backend starting up...
+2026-04-15 09:16:35,511 [INFO] kimi-server: 🚀 Kimi Clone Backend starting up...
+2026-04-15 09:16:35,516 [INFO] kimi-server: Kimi Clone Backend shutting down...
+2026-04-15 09:16:40,358 [INFO] agent.orchestrator: Session 2fe48dba created in mode: ok_computer
+2026-04-15 09:16:40,358 [INFO] kimi-server: Chat request: session=2fe48dba, mode=ok_computer, stream=False
+2026-04-15 09:16:47,443 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:16:47,484 [INFO] agent.orchestrator: [2fe48dba] Tool #1: list_workspace({})
+2026-04-15 09:17:11,132 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:17:11,133 [INFO] agent.orchestrator: Session 2fe48dba: completed after 1 tool calls in 2 iterations
+2026-04-15 09:29:48,104 [INFO] agent.orchestrator: Session 9cea712e created in mode: ok_computer
+2026-04-15 09:29:48,104 [INFO] kimi-server: Chat request: session=9cea712e, mode=ok_computer, stream=False
+2026-04-15 09:30:05,765 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:30:05,767 [INFO] agent.orchestrator: Session 9cea712e: completed after 0 tool calls in 1 iterations
+2026-04-15 09:30:22,722 [INFO] agent.orchestrator: Session 20e3ef2a created in mode: ok_computer
+2026-04-15 09:30:22,723 [INFO] kimi-server: Chat request: session=20e3ef2a, mode=ok_computer, stream=False
+2026-04-15 09:30:26,208 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:30:26,210 [INFO] agent.orchestrator: [20e3ef2a] Tool #1: ipython({"code": "def fibonacci(n):\n    fib_sequence = [0, 1]\n    while len(fib_sequence) < n:\n        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])\n    return fib_sequence\n\n# Calculate the f)
+2026-04-15 09:30:29,261 [INFO] tools.executors: IPython kernel initialized (PID: None)
+2026-04-15 09:30:32,967 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:30:32,972 [INFO] agent.orchestrator: [20e3ef2a] Tool #2: ipython({"code": "def fibonacci(n):\n    fib_sequence = [0, 1]\n    while len(fib_sequence) < n:\n        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])\n    return fib_sequence\n\n# Calculate the f)
+2026-04-15 09:30:36,559 [INFO] httpx: HTTP Request: POST https://api.moonshot.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-15 09:30:36,569 [INFO] agent.orchestrator: Session 20e3ef2a: completed after 2 tool calls in 3 iterations
